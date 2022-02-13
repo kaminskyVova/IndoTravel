@@ -22,7 +22,7 @@ export const declensionNum = (num, words) => {
 
 export const countdownTimer = () => {
   const timerArticle = document.querySelector('.timer');
-  timerArticle.dataset.timerDeadline = '2022, 02, 27, 12:30';
+  timerArticle.dataset.timerDeadline = '2022, 02, 27';
   let deadline = timerArticle.dataset.timerDeadline;
 
   deadline = new Date(deadline);
