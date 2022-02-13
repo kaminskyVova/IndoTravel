@@ -22,7 +22,7 @@ export const declensionNum = (num, words) => {
 
 export const countdownTimer = () => {
   const timerArticle = document.querySelector('.timer');
-  timerArticle.dataset.timerDeadline = '2022, 02, 27';
+  timerArticle.dataset.timerDeadline = '2022, 02, 27, 12:30';
   let deadline = timerArticle.dataset.timerDeadline;
 
   deadline = new Date(deadline);
@@ -33,9 +33,12 @@ export const countdownTimer = () => {
 		heroText.style.display = 'none'
 		timerWrapper.style.display = 'none'
   }
+
   const _days = diff > 0 ? Math.floor(diff / 1000 / 60 / 60 / 24) : 0;
   const _hours = diff > 0 ? Math.floor(diff / 1000 / 60 / 60) % 24 : 0;
   const _minutes = diff > 0 ? Math.floor(diff / 1000 / 60) % 60 : 0;
+
+	_days > 1 ? timerWrapper.style.backgroundColor = 'rgb(56, 231, 19, .6)' : timerWrapper.style.backgroundColor = 'rgb(247, 39, 11, .6)';
 
   days.textContent = _days < 10 ? '0' + _days : _days;
   hours.textContent = _hours < 10 ? '0' + _hours : _hours;
