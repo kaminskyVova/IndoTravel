@@ -1,0 +1,37 @@
+.nav-icon__middle {
+  width: 35px;
+  height: 5px;
+  background-color: #fff;
+  position: relative;
+}
+.nav-icon__middle::before,
+.nav-icon__middle::after {
+  content: '';
+  position: absolute;
+  width: 35px;
+  height: 5px;
+  left: 0;
+  background-color: #fff;
+  transition: transform 0.2s ease-in, top 0.2s linear 0.2s;
+}
+.nav-icon__middle::before {
+  top: -10px;
+}
+.nav-icon__middle::after {
+  top: 10px;
+}
+
+.nav-icon__middle.active {
+  background-color: transparent;
+}
+.nav-icon__middle.active::before,
+.nav-icon__middle.active::after {
+  top: 0;
+  transition: top 0.2s linear transform 0.2s ease-in 0.2s;
+}
+.nav-icon__middle.active::before {
+  transform: rotate(45deg);
+}
+.nav-icon__middle.active::after {
+  transform: rotate(-45deg);
+}
