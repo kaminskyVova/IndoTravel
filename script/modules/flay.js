@@ -19,7 +19,7 @@ const calcPositionFly = () => {
   const maxScroll = docEl.scrollHeight - docEl.clientHeight;
   const percentScroll = (window.pageYOffset * 100) / maxScroll;
 
-  const top = maxTop * (percentScroll / 100);
+  const top = maxTop * ((percentScroll / 100) / 2.17);
 
   fly.style.transform = `translateY(${-top}px)`;
 };

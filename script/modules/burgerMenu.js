@@ -9,7 +9,6 @@ height: 30px;
 `;
 
 body.addEventListener('click', ({ target }) => {
-  console.log('target: ', target);
   if (target.closest('.nav-btn__wrapper')) {
     menuList.classList.toggle('header__menu_active');
     menuBtn.classList.toggle('active');
