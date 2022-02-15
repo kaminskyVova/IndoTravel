@@ -1,10 +1,7 @@
+export const loadDb = async (callback) => {
+	const db = await fetch('db.json');
 
-export const loadDb = async () => {
-    const result = await fetch('db.json')
+  const data = await db.json();
 
-    const dbObj = await result.json()
-    console.log('dbObj: ', dbObj);
-
-    return {dbObj}
-
-}
+  callback(data);
+};
