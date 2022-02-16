@@ -49,9 +49,13 @@ export const formControl = (data) => {
     totalPrice = tourData.price * tourData.people;
 
     tour = tourData;
+		console.log('tour: ', tour);
+
 
     form.reset();
 
+		reservationData.textContent = '';
+		reservationPrice.textContent = `0₽`
     return { tourData };
   });
 };
