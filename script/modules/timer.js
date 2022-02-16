@@ -1,6 +1,6 @@
-const days = document.querySelector('.timer__count_days');
-const hours = document.querySelector('.timer__count_hours');
-const minutes = document.querySelector('.timer__count_minutes');
+const countDays = document.querySelector('.timer__count_days');
+const countHours = document.querySelector('.timer__count_hours');
+const countMinutes = document.querySelector('.timer__count_minutes');
 
 const daysTitle = document.querySelector('.timer__units_days');
 const hoursTitle = document.querySelector('.timer__units_hours');
@@ -22,7 +22,8 @@ export const declensionNum = (num, words) => {
 
 export const countdownTimer = () => {
   const timerArticle = document.querySelector('.timer');
-  timerArticle.dataset.timerDeadline = '2022, 02, 25, 12:00';
+  const addZero = num => num < 10 ? `0${num}` : num
+  timerArticle.dataset.timerDeadline = '2022/02/25, 12:00';
   let deadline = timerArticle.dataset.timerDeadline;
 
   deadline = new Date(deadline);
@@ -34,18 +35,18 @@ export const countdownTimer = () => {
 		timerWrapper.style.display = 'none'
   }
 
-  const _days = diff > 0 ? Math.floor(diff / 1000 / 60 / 60 / 24) : 0;
-  const _hours = diff > 0 ? Math.floor(diff / 1000 / 60 / 60) % 24 : 0;
-  const _minutes = diff > 0 ? Math.floor(diff / 1000 / 60) % 60 : 0;
+  const days = diff > 0 ? Math.floor(diff / 1000 / 60 / 60 / 24) : 0;
+  const hours = diff > 0 ? Math.floor(diff / 1000 / 60 / 60) % 24 : 0;
+  const minutes = diff > 0 ? Math.floor(diff / 1000 / 60) % 60 : 0;
 
-	_days > 0.5 ? timerWrapper.style.backgroundColor = 'rgb(56, 231, 19, .6)' : timerWrapper.style.backgroundColor = 'rgb(247, 39, 11, .6)';
+	days > 0.5 ? timerWrapper.style.backgroundColor = 'rgb(56, 231, 19, .6)' : timerWrapper.style.backgroundColor = 'rgb(247, 39, 11, .6)';
 
-  days.textContent = _days < 10 ? '0' + _days : _days;
-  hours.textContent = _hours < 10 ? '0' + _hours : _hours;
-  minutes.textContent = _minutes < 10 ? '0' + _minutes : _minutes;
-  daysTitle.textContent = declensionNum(_days, ['день', 'дня', 'дней']);
-  hoursTitle.textContent = declensionNum(_hours, ['час', 'часа', 'часов']);
-  minutesTitle.textContent = declensionNum(_minutes, [
+  countDays.textContent = addZero(days)
+  countHours.textContent = addZero(hours)
+  countMinutes.textContent = addZero(minutes)
+  daysTitle.textContent = declensionNum(days, ['день', 'дня', 'дней']);
+  hoursTitle.textContent = declensionNum(hours, ['час', 'часа', 'часов']);
+  minutesTitle.textContent = declensionNum(minutes, [
     'минута',
     'минуты',
     'минут',
