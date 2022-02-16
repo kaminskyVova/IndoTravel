@@ -13,4 +13,4 @@ const start = () => {
 	loadDb(formControl)
 };
 
-window.init = start();
+window.init = start;

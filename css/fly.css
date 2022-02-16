@@ -1,0 +1,9 @@
+.rotate-down {
+    transform: rotate(180deg);
+    transition: 0.6 ease-in-out;
+}
+
+.rotate-up{
+    transform:rotate(360deg);
+    transition: 0.6 ease-in-out;
+}
