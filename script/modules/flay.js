@@ -24,32 +24,32 @@ const reversFly = () => {
     const start = percentScroll - (window.pageYOffset * 100) / maxScroll;
 
     if (start > 0) {
-      fly.style.cssText = ` 
-      transform: rotate(180deg);
-      position: fixed;
-      width: 50px;
-      height: 50px;
-      right: 0;
-      bottom: 0;
-      pointer-events: none;
-      background: url('../../img/airplane/airplane.svg') center/contain;
-      `;
-      // fly.classList.remove('rotate-down')
-      // fly.classList.add('rotate-up')
+      // fly.style.cssText = ` 
+      // transform: rotate(180deg);
+      // position: fixed;
+      // width: 50px;
+      // height: 50px;
+      // // right: 0;
+      // // bottom: 0;
+      // pointer-events: none;
+      // background: url('../../img/airplane/airplane.svg') center/contain;
+      // `;
+      fly.classList.remove('rotate-down')
+      fly.classList.add('rotate-up')
     }
     if (start < 0) {
-      fly.style.cssText = `
-      transform:rotate(360deg);
-      position: fixed;
-      width: 50px;
-      height: 50px;
-      right: 0;
-      bottom: 0;
-      pointer-events: none;
-      background: url('../../img/airplane/airplane.svg') center/contain;
-      `;
-      // fly.classList.remove('rotate-up')
-      // fly.classList.add('rotate-down')
+      // fly.style.cssText = `
+      // transform:rotate(360deg);
+      // position: fixed;
+      // width: 50px;
+      // height: 50px;
+      // // right: 0;
+      // // bottom: 0;
+      // pointer-events: none;
+      // background: url('../../img/airplane/airplane.svg') center/contain;
+      // `;
+      fly.classList.remove('rotate-up')
+      fly.classList.add('rotate-down')
     }
   });
 };
@@ -61,7 +61,7 @@ const calcPositionFly = () => {
 
   const shareHeightViewPort = maxTop / 100;
 
-  fly.style.transform = `translateY(${-shareHeightViewPort * percentScroll}px)`;
+  fly.style.top = `${shareHeightViewPort * percentScroll}px`;
 };
 
 window.addEventListener('scroll', reversFly);
