@@ -10,46 +10,23 @@ fly.style.cssText = `
     pointer-events: none;
 
     background: url('../../img/airplane/airplane.svg') center/contain;
-
 `;
 document.body.append(fly);
 
 const reversFly = () => {
-
   const maxScroll = docEl.scrollHeight - docEl.clientHeight;
   const percentScroll = (window.pageYOffset * 100) / maxScroll;
-
 
   window.addEventListener('scroll', () => {
     const start = percentScroll - (window.pageYOffset * 100) / maxScroll;
 
     if (start > 0) {
-      // fly.style.cssText = ` 
-      // transform: rotate(180deg);
-      // position: fixed;
-      // width: 50px;
-      // height: 50px;
-      // // right: 0;
-      // // bottom: 0;
-      // pointer-events: none;
-      // background: url('../../img/airplane/airplane.svg') center/contain;
-      // `;
-      fly.classList.remove('rotate-down')
-      fly.classList.add('rotate-up')
+      fly.classList.remove('rotate-down');
+      fly.classList.add('rotate-up');
     }
     if (start < 0) {
-      // fly.style.cssText = `
-      // transform:rotate(360deg);
-      // position: fixed;
-      // width: 50px;
-      // height: 50px;
-      // // right: 0;
-      // // bottom: 0;
-      // pointer-events: none;
-      // background: url('../../img/airplane/airplane.svg') center/contain;
-      // `;
-      fly.classList.remove('rotate-up')
-      fly.classList.add('rotate-down')
+      fly.classList.remove('rotate-up');
+      fly.classList.add('rotate-down');
     }
   });
 };
