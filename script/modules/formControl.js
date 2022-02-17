@@ -1,4 +1,4 @@
-import { loadDb } from './fetch.js';
+import { dbControl } from './dbControl.js';
 
 const reservationData = document.querySelector('.reservation__data');
 const reservationPrice = document.querySelector('.reservation__price');
@@ -46,16 +46,23 @@ export const formControl = (data) => {
         tourData.price = tour.price;
       }
     });
+
     totalPrice = tourData.price * tourData.people;
 
-    tour = tourData;
+    if (tour.people != 0) {
+      tour = tourData;
+      form.reset();
+    } else  {
+      alert(`Выберите количестов человек!`)
+    }
+
 		console.log('tour: ', tour);
-
-
-    form.reset();
 
 		reservationData.textContent = '';
 		reservationPrice.textContent = `0₽`
+
+    dbControl(tour)
+    
     return { tourData };
   });
 };
