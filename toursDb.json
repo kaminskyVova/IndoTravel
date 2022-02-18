@@ -2,49 +2,21 @@
   "tours": [
     {
       "contact": "Вова Каминский",
-      "date": "04.02 - 18.02",
-      "people": "5",
-      "phone": "+972545473335",
-      "price": 58900,
-      "id": 1
-    },
-    {
-      "contact": "ss",
-      "date": "15.02 - 05.03",
-      "people": "8",
-      "phone": "054-5473335",
-      "price": 73900,
-      "id": 2
-    },
-    {
-      "contact": "Вова Каминский",
-      "date": "04.02 - 18.02",
-      "people": "3",
-      "phone": "ff",
-      "price": 58900,
-      "id": 3
-    },
-    {
-      "contact": "ss",
-      "date": "04.02 - 18.02",
-      "people": "3",
-      "phone": "972545473335",
-      "price": 58900,
-      "id": 4
-    },
-    {
-      "contact": "Вова Каминский",
       "date": "07.02 - 21.02",
-      "people": "3",
-      "phone": "0545473335",
+      "people": "5",
+      "phone": "054-5473335",
       "price": 62700,
-      "id": 5
+      "id": 1
     }
   ],
   "emails": [
     {
       "email": "kaminskijvova59@gmail.com",
       "id": 1
+    },
+    {
+      "email": "vladkaminsky82@gmail.com",
+      "id": 2
     }
   ]
 }
