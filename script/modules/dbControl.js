@@ -1,9 +1,11 @@
-export const dbControl = (tour) => {
-  fetch('http://localhost:3000/api/goods', {
+import { createPopupStatus201, createPopupStatusFalse, createEmailStatusFalse } from './popupStatus.js';
+
+export const dbReservationControl = (tour) => {
+  fetch('http://localhost:3000/tours', {
     method: 'POST',
     body: JSON.stringify({
       contact: tour.contact,
-      dates: tour.dates,
+      date: tour.dates,
       people: tour.people,
       phone: tour.phone,
       price: tour.price,
@@ -11,5 +13,29 @@ export const dbControl = (tour) => {
 		headers: {
 			'Content-Type': 'application/json'
 		},
-  });
+  })
+  .then(response => {
+    if (response.status === 201) createPopupStatus201();
+    if (response.status != 201) createPopupStatusFalse();
+  })
+  .catch(error => console.error(error));
+
+};
+
+export const dbEmailControl = (email) => {
+  fetch('http://localhost:3000/emails', {
+    method: 'POST',
+    body: JSON.stringify({
+      email: email.email
+    }),
+		headers: {
+			'Content-Type': 'application/json'
+		},
+  })
+  .then(response => {
+    if (response.status === 201) createPopupStatus201();
+    if (response.status != 201) createEmailStatusFalse();
+  })
+  .catch(error => console.error(error));
+
 };

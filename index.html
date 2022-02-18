@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="css/fly.css">
   <link rel="stylesheet" href="css/burger.css">
   <link rel="stylesheet" href="css/timer.css">
+  <link rel="stylesheet" href="css/popup-status.css">
 
   <script type="module" src="./script/main.js"></script>
   <title>Indonesia</title>
@@ -328,11 +329,11 @@
               <a href="#" class="footer__socials-link footer__socials-link_tg" aria-label="ссылка на telegram"></a></li>
           </ul>
         </div>
-        <form action="#" class="footer__form">
+        <form action="#" class="footer__form" id="email__form">
           <h2 class="footer__title footer__form-title">Есть вопросы по туру?</h2>
           <p class="footer__text">Введите свой Email и мы свяжемся с вами в течении 3 рабочих дней</p>
           <div class="footer__input-wrap">
-            <input required type="text" class="footer__input" placeholder="Введите адрес электронной почты">
+            <input required type="text" name="email" class="footer__input" placeholder="Введите адрес электронной почты">
             <button type="submit" class="button footer__button" aria-label="Кнопка отправки данных формы"></button>
           </div>
         </form>

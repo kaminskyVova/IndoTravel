@@ -1,4 +1,4 @@
-import { dbControl } from './dbControl.js';
+import { dbReservationControl, dbEmailControl } from './dbControl.js';
 
 const reservationData = document.querySelector('.reservation__data');
 const reservationPrice = document.querySelector('.reservation__price');
@@ -11,7 +11,7 @@ let tour = {
   people: 0,
 };
 
-export const formControl = (data) => {
+export const formReservationControl = (data) => {
   dataT = data;
   const form = document.querySelector('.reservation__form');
   reservationPrice.textContent = `${totalPrice}₽`;
@@ -40,6 +40,7 @@ export const formControl = (data) => {
 
     const formData = new FormData(e.target);
     const tourData = Object.fromEntries(formData);
+    console.log('tourData: ', tourData);
 
     dataT.forEach((tour) => {
       if (tour.date === tourData.dates) {
@@ -52,17 +53,30 @@ export const formControl = (data) => {
     if (tour.people != 0) {
       tour = tourData;
       form.reset();
-    } else  {
-      alert(`Выберите количестов человек!`)
+    } else {
+      alert(`Выберите количестов человек!`);
     }
 
-		console.log('tour: ', tour);
+    reservationData.textContent = '';
+    reservationPrice.textContent = `0₽`;
 
-		reservationData.textContent = '';
-		reservationPrice.textContent = `0₽`
+    dbReservationControl(tour);
 
-    dbControl(tour)
-    
     return { tourData };
+  });
+};
+
+export const formEmailControl = () => {
+  const form = document.querySelector('.footer__form');
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.target);
+    const emailData = Object.fromEntries(formData);
+
+    dbEmailControl(emailData);
+
+    return { emailData };
   });
 };
