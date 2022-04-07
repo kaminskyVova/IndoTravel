@@ -1,4 +1,6 @@
+import { createModalConfirm } from './createModalConfirm.js';
 import { dbReservationControl, dbEmailControl } from './dbControl.js';
+import { loadStyles } from './loadStylesCss.js';
 
 const reservationData = document.querySelector('.reservation__data');
 const reservationPrice = document.querySelector('.reservation__price');
@@ -9,6 +11,21 @@ let totalPrice = 0;
 let tour = {
   dates: 0,
   people: 0,
+};
+
+export const confirmModalControl = async (tour) => {
+  await loadStyles('css/confirm-popup.css');
+
+  const { overlayConfirm, modal } = createModalConfirm(tour);
+
+  modal.addEventListener('click', ({ target }) => {
+    if (target.classList.contains('modal__btn_confirm')) {
+      dbReservationControl(tour);
+      overlayConfirm.classList.remove('is-visible');
+    }
+    if (target.classList.contains('modal__btn_edit'))
+      overlayConfirm.classList.remove('is-visible');
+  });
 };
 
 export const formReservationControl = (data) => {
@@ -40,8 +57,7 @@ export const formReservationControl = (data) => {
 
     const formData = new FormData(e.target);
     const tourData = Object.fromEntries(formData);
-    console.log('tourData: ', tourData);
-
+    tourData.price = totalPrice;
     dataT.forEach((tour) => {
       if (tour.date === tourData.dates) {
         tourData.price = tour.price;
@@ -60,7 +76,9 @@ export const formReservationControl = (data) => {
     reservationData.textContent = '';
     reservationPrice.textContent = `0₽`;
 
-    dbReservationControl(tour);
+    tour.price = totalPrice;
+
+    confirmModalControl(tour);
 
     return { tourData };
   });
