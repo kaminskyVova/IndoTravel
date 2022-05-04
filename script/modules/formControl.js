@@ -6,6 +6,8 @@ const reservationData = document.querySelector('.reservation__data');
 const reservationPrice = document.querySelector('.reservation__price');
 const selectDataTour = document.querySelector('#reservation__date');
 const selectPeopleCount = document.querySelector('#reservation__people');
+const reservationName = document.querySelector('.reservation__input_name');
+const reservationPhone = document.querySelector('#reservation__phone')
 let dataT = '';
 let totalPrice = 0;
 let tour = {
@@ -29,6 +31,7 @@ export const confirmModalControl = async (tour) => {
 };
 
 export const formReservationControl = (data) => {
+  let flag = false;
   dataT = data;
   const form = document.querySelector('.reservation__form');
   reservationPrice.textContent = `${totalPrice}₽`;
@@ -51,6 +54,29 @@ export const formReservationControl = (data) => {
 
     reservationPrice.textContent = `${totalPrice}₽`;
   });
+
+  reservationName.addEventListener('input', () => {
+    reservationName.value = reservationName.value.replace(/[^а-яё ]/gi, '')
+  })
+
+  reservationName.addEventListener('change', () => {
+    const text = reservationName.value.trim();
+    text.match(/[а-я]/gi);
+    const n = text.split(' ');
+
+    if(n.length < 3) {
+      alert('Должны быть указанны Фамилия Имя Отчество')
+    }
+    else {
+      flag = true
+      console.log('flag: ', flag);
+    }
+
+  });
+
+  reservationPhone.addEventListener('input', () => {
+    reservationPhone.value = reservationPhone.value.replace(/[^0-9+]/gi, '')
+  })
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -78,7 +104,7 @@ export const formReservationControl = (data) => {
 
     tour.price = totalPrice;
 
-    confirmModalControl(tour);
+    flag ? confirmModalControl(tour) : '';
 
     return { tourData };
   });
