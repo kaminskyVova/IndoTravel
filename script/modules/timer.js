@@ -23,7 +23,7 @@ export const declensionNum = (num, words) => {
 export const countdownTimer = () => {
   const timerArticle = document.querySelector('.timer');
   const addZero = num => num < 10 ? `0${num}` : num
-  timerArticle.dataset.timerDeadline = '2022/05/25, 12:00';
+  timerArticle.dataset.timerDeadline = '2022/07/25, 12:00';
   let deadline = timerArticle.dataset.timerDeadline;
 
   deadline = new Date(deadline);

@@ -5,9 +5,12 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <link rel="stylesheet preload prefetch" href="fonts/merriweather-v28-latin_cyrillic-regular.woff2" as="style" type="text/css" crossorigin="anonymous">
-  <link rel="stylesheet preload prefetch" href="fonts/nunito-v20-latin_cyrillic-300.woff2" as="style" type="text/css" crossorigin="anonymous">
-  <link rel="stylesheet preload prefetch" href="fonts/nunito-v20-latin_cyrillic-700.woff2" as="style" type="text/css" crossorigin="anonymous">
+  <link rel="stylesheet preload prefetch" href="fonts/merriweather-v28-latin_cyrillic-regular.woff2" as="style"
+    type="text/css" crossorigin="anonymous">
+  <link rel="stylesheet preload prefetch" href="fonts/nunito-v20-latin_cyrillic-300.woff2" as="style" type="text/css"
+    crossorigin="anonymous">
+  <link rel="stylesheet preload prefetch" href="fonts/nunito-v20-latin_cyrillic-700.woff2" as="style" type="text/css"
+    crossorigin="anonymous">
   <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
   <link rel="icon" type="image/png" href="img/favicon.png">
   <link rel="stylesheet" href="css/index.css">
@@ -15,8 +18,16 @@
   <link rel="stylesheet" href="css/burger.css">
   <link rel="stylesheet" href="css/timer.css">
   <link rel="stylesheet" href="css/popup-status.css">
+  <link rel="stylesheet" href="css/justValid.css">
+  <link rel="stylesheet" href="css/swiper-bundle.min.css">
 
-  <!-- <link rel="stylesheet" href="css/confirm-popup.css"> -->
+  <script defer src="./script/modules/swiper-bundle.min.js"></script>
+
+  <script defer src="./script/modules/swiper.js"></script>
+
+  <script defer src="./script/modules/just-validate.production.min.js"></script>
+
+  <script defer src="./script/modules/inputmask.min.js"></script>
 
   <script type="module" src="./script/main.js"></script>
   <title>Indonesia</title>
@@ -246,44 +257,45 @@
         <p class="section__text section__text_big album__text">За годы поездок у нас накопилось много фотографий из
           Индонезии. Представляем их вам.</p>
       </div>
-      <div class="album__slider">
-        <ul class="album__list">
-          <li class="album__item">
+
+      <div class="album__slider mySwiper">
+        <ul class="album__list swiper-wrapper">
+          <li class="album__item swiper-slide">
             <picture>
               <source srcset="img/album/1.avif" type="image/avif">
               <source srcset="img/album/1.webp" type="image/webp">
               <img src="img/album/1.jpg" alt="Остров" class="album__image">
             </picture>
           </li>
-          <li class="album__item">
+          <li class="album__item swiper-slide">
             <picture>
               <source srcset="img/album/2.avif" type="image/avif">
               <source srcset="img/album/2.webp" type="image/webp">
               <img src="img/album/2.jpg" alt="Горы" class="album__image">
             </picture>
           </li>
-          <li class="album__item">
+          <li class="album__item swiper-slide">
             <picture>
               <source srcset="img/album/3.avif" type="image/avif">
               <source srcset="img/album/3.webp" type="image/webp">
               <img src="img/album/3.jpg" alt="Лодки" class="album__image">
             </picture>
           </li>
-          <li class="album__item">
+          <li class="album__item swiper-slide">
             <picture>
               <source srcset="img/album/4.avif" type="image/avif">
               <source srcset="img/album/4.webp" type="image/webp">
               <img src="img/album/4.jpg" alt="Закат" class="album__image">
             </picture>
           </li>
-          <li class="album__item">
+          <li class="album__item swiper-slide">
             <picture>
               <source srcset="img/album/5.avif" type="image/avif">
               <source srcset="img/album/5.webp" type="image/webp">
               <img src="img/album/5.jpg" alt="Волны" class="album__image">
             </picture>
           </li>
-          <li class="album__item">
+          <li class="album__item swiper-slide">
             <picture>
               <source srcset="img/album/6.avif" type="image/avif">
               <source srcset="img/album/6.webp" type="image/webp">
@@ -294,6 +306,7 @@
         <div class="album__left"></div>
         <div class="album__right"></div>
       </div>
+
     </section>
     <section class="section reservation" id="reservation">
       <div class="container reservation__container">
@@ -316,7 +329,7 @@
           <div class="reservation__contacts">
             <div class="reservation__input-wrap">
               <label for="reservation__name" class="reservation__label">ФИО</label>
-              <input required type="text" class="reservation__input reservation__input_name" name="contact"
+              <input  type="text" class="reservation__input reservation__input_name" name="contact"
                 id="reservation__name" placeholder="Введите ваше ФИО">
             </div>
             <div class="reservation__input-wrap">

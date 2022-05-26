@@ -1485,8 +1485,8 @@ p {
 .album__left {
 		position: absolute;
 		content: "";
-		width: 90px;
-		height: 90px;
+		width: 70px;
+		height: 70px;
 		top: 50%;
 		left: 130px;
 		-webkit-transform: translateY(-50%);
@@ -1498,9 +1498,6 @@ p {
 		border-radius: 50%;
 }
 
-.album__left:focus {
-		background-color: #AFAFAF;
-}
 
 .album__left:active {
 		-webkit-transform: translateY(-50%) rotate(180deg);
@@ -1512,8 +1509,8 @@ p {
 .album__right {
 		position: absolute;
 		content: "";
-		width: 90px;
-		height: 90px;
+		width: 70px;
+		height: 70px;
 		top: 50%;
 		right: 130px;
 		-webkit-transform: translateY(-50%);
@@ -1525,9 +1522,24 @@ p {
 		border-radius: 50%;
 }
 
-.album__right:focus {
-		background-color: #AFAFAF;
+.swiper {
+	width: 100%;
+	padding-top: 50px;
+	padding-bottom: 50px;
 }
+
+.swiper-slide {
+	background-position: center;
+	background-size: cover;
+	width: 300px;
+	height: 300px;
+}
+
+.swiper-slide img {
+	display: block;
+	width: 100%;
+}
+
 
 .album__right:active {
 		background: url("../img/album/arrow-right-active.svg") center/contain no-repeat;

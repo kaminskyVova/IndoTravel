@@ -8,6 +8,7 @@ fly.style.cssText = `
     right: 0;
     bottom: 0;
     pointer-events: none;
+    z-index: 100;
 
     background: url('../../img/airplane/airplane.svg') center/contain;
 `;
